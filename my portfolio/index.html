@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish Rajput | Portfolio</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0B0B0B',
+                        cardBg: '#111111',
+                        primary: '#7C3AED',
+                        secondary: '#06B6D4',
+                        textMain: '#FFFFFF',
+                        textSec: '#A1A1AA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0B0B0B; scroll-behavior: smooth; }
+        .premium-card {
+            background: rgba(17, 17, 17, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .premium-card:hover { border-color: rgba(124, 58, 237, 0.4); transform: translateY(-5px); }
+        .nav-link { transition: color 0.3s ease; position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background: #7C3AED; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        
+        /* Modal Animation */
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: all 0.3s ease-out; }
+        
+        /* Tech Icon Styling */
+        .tech-icon { width: 24px; height: 24px; filter: grayscale(1) brightness(1.5); transition: all 0.3s ease; }
+        .tech-icon:hover { filter: grayscale(0) brightness(1); }
+    </style>
+</head>
+<body class="text-textSec font-sans antialiased">
+
+    <!-- STICKY HEADER -->
+    <nav class="fixed top-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <span class="font-heading text-xl font-bold text-white tracking-tighter uppercase italic">Ashish Rajput</span>
+            
+            <div class="hidden md:flex items-center gap-8 text-[11px] font-bold tracking-widest uppercase">
+                <a href="#home" class="nav-link text-white">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button onclick="toggleModal()" class="ml-4 px-6 py-2.5 bg-primary text-white rounded-full hover:bg-primary/80 transition-all">Book a Free Consultation</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="flex flex-col items-center text-center pt-40 mb-32" data-aos="fade-down">
+        <div class="relative group mb-10">
+            <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-25"></div>
+            <div class="relative w-44 h-44 rounded-full p-[2px] bg-gradient-to-b from-white/20 to-transparent">
+                <img src="profile.jpg" alt="Ashish Rajput" class="w-full h-full object-cover rounded-full border-[6px] border-darkBg shadow-2xl">
+            </div>
+        </div>
+
+        <h1 class="font-heading text-6xl md:text-8xl font-bold text-white tracking-tighter mb-4 uppercase italic leading-none">
+            ASHISH RAJPUT
+        </h1>
+        <p class="text-secondary text-xl font-bold tracking-[0.4em] uppercase mb-8">Full Stack Web Developer</p>
+        
+        <div class="flex gap-4 text-[10px] font-bold tracking-[0.3em] text-zinc-500 uppercase mb-12 bg-white/5 px-6 py-2 rounded-full border border-white/5">
+            <span>Modern</span> • <span>Fast</span> • <span>Responsive</span> • <span>SEO Friendly</span>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6">
+            <a href="#projects" class="px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest border border-white/10 text-white hover:bg-white/5 transition-all">
+                View Work
+            </a>
+        </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-6">
+        
+        <!-- ABOUT SECTION -->
+        <section id="about" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="premium-card rounded-[3rem] p-10 md:p-14" data-aos="fade-right">
+                <h2 class="font-heading text-3xl font-bold text-white mb-8 flex items-center gap-4">
+                    <span class="w-10 h-[2px] bg-primary"></span> ABOUT ME
+                </h2>
+                <ul class="space-y-5 text-lg font-medium text-zinc-300">
+                    <li class="flex items-start gap-4"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1"></i> Business-focused web development</li>
+                    <li class="flex items-start gap-4"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1"></i> Modern UI/UX design architecture</li>
+                    <li class="flex items-start gap-4"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary mt-1"></i> Performance & SEO optimization</li>
+                </ul>
+            </div>
+
+            <!-- SERVICES SECTION -->
+            <div id="services" class="premium-card rounded-[3rem] p-10 md:p-14" data-aos="fade-left">
+                <h2 class="font-heading text-3xl font-bold text-white mb-8 flex items-center gap-4">
+                    <span class="w-10 h-[2px] bg-secondary"></span> SERVICES
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-5 rounded-3xl bg-white/5 border border-white/5">
+                        <i data-lucide="briefcase" class="w-6 h-6 text-secondary mb-3"></i>
+                        <p class="text-sm font-bold text-white">Business Websites</p>
+                    </div>
+                    <div class="p-5 rounded-3xl bg-white/5 border border-white/5">
+                        <i data-lucide="rocket" class="w-6 h-6 text-secondary mb-3"></i>
+                        <p class="text-sm font-bold text-white">Landing Pages</p>
+                    </div>
+                    <div class="p-5 rounded-3xl bg-white/5 border border-white/5">
+                        <i data-lucide="user" class="w-6 h-6 text-secondary mb-3"></i>
+                        <p class="text-sm font-bold text-white">Portfolio Websites</p>
+                    </div>
+                    <div class="p-5 rounded-3xl bg-white/5 border border-white/5">
+                        <i data-lucide="refresh-cw" class="w-6 h-6 text-secondary mb-3"></i>
+                        <p class="text-sm font-bold text-white">Website Redesign</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="premium-card rounded-[3rem] p-10 md:p-14 mb-8" data-aos="fade-up">
+            <h2 class="font-heading text-3xl font-bold text-white mb-10">TECH STACK</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-6 italic">Frontend & Backend</p>
+                    <div class="flex flex-wrap gap-6 items-center">
+                        <div class="flex items-center gap-2"><img src="https://cdn.simpleicons.org/html5/E34F26" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">HTML5</span></div>
+                        <div class="flex items-center gap-2"><img src="https://cdn.simpleicons.org/css3/1572B6" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">CSS3</span></div>
+                        <div class="flex items-center gap-2"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">JavaScript</span></div>
+                        <div class="flex items-center gap-2"><img src="https://cdn.simpleicons.org/react/61DAFB" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">React.js</span></div>
+                        <div class="flex items-center gap-2"><img src="https://cdn.simpleicons.org/nodedotjs/339933" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">Node.js</span></div>
+                        <div class="flex items-center gap-2"><img src="https://cdn.simpleicons.org/mongodb/47A033" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">MongoDB</span></div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-6 italic">Tools Used</p>
+                    <div class="flex flex-wrap gap-6 items-center">
+                        <div class="flex items-center gap-2" title="VS Code"><img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">VS Code</span></div>
+                        <div class="flex items-center gap-2" title="GitHub"><img src="https://cdn.simpleicons.org/github/FFFFFF" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">GitHub</span></div>
+                        <div class="flex items-center gap-2" title="Git"><img src="https://cdn.simpleicons.org/git/F05032" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">Git</span></div>
+                        <div class="flex items-center gap-2" title="Google AI Studio"><img src="https://cdn.simpleicons.org/google/4285F4" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">AI Studio</span></div>
+                        <div class="flex items-center gap-2" title="Vercel"><img src="https://cdn.simpleicons.org/vercel/FFFFFF" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">Vercel</span></div>
+                        <div class="flex items-center gap-2" title="Netlify"><img src="https://cdn.simpleicons.org/netlify/00C7B7" class="tech-icon" /> <span class="text-xs font-bold uppercase tracking-widest">Netlify</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY WORK WITH ME -->
+        <section class="premium-card rounded-[3rem] p-10 md:p-14 mb-8" data-aos="fade-up">
+            <h2 class="font-heading text-3xl font-bold text-white mb-10 text-center uppercase italic">Why Work With Me</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="smartphone" class="text-secondary"></i></div>
+                    <p class="font-bold text-white text-xs uppercase tracking-widest">✓ Fully Mobile Responsive</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="search" class="text-secondary"></i></div>
+                    <p class="font-bold text-white text-xs uppercase tracking-widest">✓ SEO Optimized</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="zap" class="text-secondary"></i></div>
+                    <p class="font-bold text-white text-xs uppercase tracking-widest">✓ Fast Delivery (4–5 Days)</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="clock" class="text-secondary"></i></div>
+                    <p class="font-bold text-white text-xs uppercase tracking-widest">✓ Response Time (< 2 Hours)</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="settings" class="text-secondary"></i></div>
+                    <p class="font-bold text-white text-xs uppercase tracking-widest">✓ Fully Customizable</p>
+                </div>
+                <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center group">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i data-lucide="layout" class="text-secondary"></i></div>
+                    <p class="font-bold text-white text-xs uppercase tracking-widest">✓ Modern UI/UX</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS / MY WORK -->
+        <section id="projects" class="mb-8" data-aos="fade-up">
+            <h2 class="font-heading text-4xl font-bold text-white mb-10 uppercase italic">Selected Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 Placeholder -->
+                <div class="premium-card rounded-[2.5rem] p-8">
+                    <div class="w-full h-48 bg-white/5 rounded-2xl mb-6"></div>
+                    <h3 class="text-white font-bold text-xl mb-2">Project Name</h3>
+                    <p class="text-sm mb-6">High-end project description goes here.</p>
+                    <a href="#" class="px-6 py-3 border border-white/10 rounded-full text-xs font-black uppercase tracking-widest inline-block hover:bg-white/5">View Work</a>
+                </div>
+                <!-- Project 2 Placeholder -->
+                <div class="premium-card rounded-[2.5rem] p-8">
+                    <div class="w-full h-48 bg-white/5 rounded-2xl mb-6"></div>
+                    <h3 class="text-white font-bold text-xl mb-2">Project Name</h3>
+                    <p class="text-sm mb-6">High-end project description goes here.</p>
+                    <a href="#" class="px-6 py-3 border border-white/10 rounded-full text-xs font-black uppercase tracking-widest inline-block hover:bg-white/5">View Work</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="premium-card rounded-[3rem] p-10 md:p-16 mb-8" data-aos="zoom-in">
+            <h2 class="font-heading text-4xl font-bold text-white mb-10 text-center italic uppercase">Let's Talk</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="https://www.linkedin.com/in/ashishrajput07/" target="_blank" class="p-6 rounded-3xl bg-white/5 border border-white/5 hover:border-primary transition-all flex flex-col items-center">
+                    <img src="https://cdn.simpleicons.org/linkedin/0A66C2" class="w-8 h-8 mb-4" />
+                    <span class="text-[10px] font-bold text-white uppercase tracking-widest">LinkedIn</span>
+                </a>
+                <a href="mailto:ashishrajput040708@email.com" class="p-6 rounded-3xl bg-white/5 border border-white/5 hover:border-primary transition-all flex flex-col items-center">
+                    <i data-lucide="mail" class="w-8 h-8 text-white mb-4"></i>
+                    <span class="text-[10px] font-bold text-white uppercase tracking-widest">Email</span>
+                </a>
+                <a href="tel:6260989705" class="p-6 rounded-3xl bg-white/5 border border-white/5 hover:border-primary transition-all flex flex-col items-center">
+                    <i data-lucide="phone" class="w-8 h-8 text-white mb-4"></i>
+                    <span class="text-[10px] font-bold text-white uppercase tracking-widest">Call Now</span>
+                </a>
+                <a href="https://wa.me/916260989705" target="_blank" class="p-6 rounded-3xl bg-white/5 border border-white/5 hover:border-primary transition-all flex flex-col items-center">
+                    <img src="https://cdn.simpleicons.org/whatsapp/25D366" class="w-8 h-8 mb-4" />
+                    <span class="text-[10px] font-bold text-white uppercase tracking-widest">WhatsApp</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="pt-20 border-t border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div>
+                    <span class="font-heading text-2xl font-bold text-white uppercase italic">Ashish Rajput</span>
+                    <p class="mt-4 text-xs font-medium max-w-xs leading-loose">Crafting high-performance digital experiences for modern businesses.</p>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <span class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-4">Quick Links</span>
+                    <a href="#home" class="text-xs hover:text-primary">Home</a>
+                    <a href="#about" class="text-xs hover:text-primary">About</a>
+                    <a href="#services" class="text-xs hover:text-primary">Services</a>
+                    <a href="#projects" class="text-xs hover:text-primary">Projects</a>
+                </div>
+                <div class="flex flex-col items-start gap-4">
+                    <span class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-4">Follow Me</span>
+                    <div class="flex gap-4">
+                        <a href="https://github.com" class="hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/in/ashishrajput07/" class="hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="mailto:ashishrajput040708@email.com" class="hover:text-white transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                        <a href="https://wa.me/916260989705" class="hover:text-white transition-colors"><i data-lucide="message-circle" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 py-10">
+                <p class="text-[10px] tracking-[0.4em] font-bold uppercase text-zinc-700">Copyright © 2026 Ashish Rajput</p>
+                <a href="#home" class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white group">
+                    Back to Top <i data-lucide="arrow-up" class="w-4 h-4 group-hover:-translate-y-1 transition-transform"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CONSULTATION MODAL -->
+    <div id="consultationModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-6">
+        <div class="absolute inset-0 bg-darkBg/95 backdrop-blur-xl" onclick="toggleModal()"></div>
+        <div class="relative premium-card w-full max-w-xl p-8 md:p-12 rounded-[3rem] border-primary/20 shadow-2xl">
+            <button onclick="toggleModal()" class="absolute top-8 right-8 text-white hover:text-primary transition-colors"><i data-lucide="x"></i></button>
+            <h2 class="font-heading text-3xl font-bold text-white mb-2 uppercase italic">Free Consultation</h2>
+            <p class="text-xs mb-8 text-zinc-400 tracking-widest uppercase">Let's build something exceptional</p>
+            
+            <form id="consultationForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Full Name" required class="bg-white/5 border border-white/10 rounded-2xl p-4 text-sm text-white focus:outline-none focus:border-primary transition-all">
+                    <input type="tel" placeholder="Phone Number" required class="bg-white/5 border border-white/10 rounded-2xl p-4 text-sm text-white focus:outline-none focus:border-primary transition-all">
+                </div>
+                <input type="email" placeholder="Email Address" required class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-sm text-white focus:outline-none focus:border-primary transition-all">
+                <select required class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-sm text-white focus:outline-none focus:border-primary transition-all">
+                    <option value="" disabled selected class="bg-darkBg">Website Type</option>
+                    <option value="business" class="bg-darkBg">Business Website</option>
+                    <option value="portfolio" class="bg-darkBg">Portfolio</option>
+                    <option value="e-commerce" class="bg-darkBg">E-commerce</option>
+                    <option value="landing" class="bg-darkBg">Landing Page</option>
+                </select>
+                <textarea placeholder="Requirements / Project Details" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-sm text-white focus:outline-none focus:border-primary transition-all"></textarea>
+                <button type="submit" class="w-full py-5 bg-primary text-white font-black rounded-full uppercase tracking-widest text-xs hover:bg-primary/80 transition-all shadow-xl shadow-primary/20">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Iconsa
+        lucide.createIcons();
+        
+        // AOS
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+
+        // Modal Logic
+        function toggleModal() {
+            const modal = document.getElementById('consultationModal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // Simple Validation Response
+        document.getElementById('consultationForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert('Your request has been sent! I will respond within 2 hours.');
+            toggleModal();
+        }
+    </script>
+</body>
+</html>
